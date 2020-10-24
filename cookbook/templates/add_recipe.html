@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %} 
+
+
+
+
+<h1> Add Recipe </h1>
+
+<form methos= "POST">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<button>SAVE</button>
+
+{% endblock %}

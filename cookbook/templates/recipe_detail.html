@@ -1,0 +1,129 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" type="text/css" href="{%  static  'css/style.css'  %}">
+
+
+
+
+
+<div class="wrapper">
+	{% if recipe.headerimage %}
+	<div class="photo">
+	<img src="{{ recipe.headerimage.url }}">
+	</div>
+
+	{% endif %}
+
+	<div class="title"> <h1> {{ recipe.name }} </h1>
+	</div>
+
+	{% if recipe.intro %}
+	
+	<div class="intro">{{ recipe.intro | safe }} 
+	</div>
+
+	{% endif %}
+
+
+
+	<div class="line"><hr></div>
+
+	<div class="info"> 
+		<div class="infotitle"><h1>COURSE:</h1> </div>
+
+		<div class="infotext">{% for course in recipe.course.all %} 
+					{{ course }}{% if not forloop.last %}, {% endif %}
+				{% endfor %}
+				<hr>
+
+		</div>
+		
+		<div class="infotitle"><H1>CUISINE:</H1> </div>
+
+		<div class="infotext">{% for cuisine in recipe.cuisine.all %} 
+					{{ cuisine }}{% if not forloop.last %}, {% endif %}
+				{% endfor %}</div>
+	</div>
+
+	<div class="info">
+		<div class="infotitle"><h1>PREPTIME:</h1></div> 
+
+		<div class="infotext">{{ recipe.preptime }}<hr></div>
+
+		<div class="infotitle"><h1>COOKTIME:</h1></div> 
+
+		<div class="infotext">{{ recipe.cooktime }}</div>
+	</div>
+
+	<div class="info">
+		<div class="infotitle"><h1>SERVES:</h1></div>
+		
+		<div class="infotext">{{ recipe.portion }}<hr></div>
+
+		<div class="infotitle"><h1>EQUIPMENT:</h1></div>
+		
+		<div class="infotext">{% for equipment in recipe.equipment.all %} 
+					{{ equipment }}{% if not forloop.last %}, {% endif %}
+				{% endfor %}
+		</div>
+
+
+	</div>
+
+
+<div class="line"><hr></div>
+
+	<div class="recipe"> 
+		
+		<div><h1>RECIPE:</h1></div>
+
+		<div class="recipedescription">
+			{% for step in recipe.get_text_steps %}
+
+			<h2> {{ step.0 | safe }} </h2>
+			{{ step.1 | safe }}
+
+			{% endfor %}
+
+
+		</div>
+
+	</div>
+
+	<div class="ingredients"> 
+
+		<div><h1> INGREDIENTS:  </h1></div>		
+		<div class="ingredientlist">
+		{% for step, ingredients in recipe.get_text %}
+
+		<H2> VOOR DE {{ step }} </H2>
+
+				<ul>
+
+					{% for item in ingredients %}
+					
+			
+
+						<li><em>
+							{{item.1|safe}} {% if item.2 is not None %} {{item.2|safe}} {% endif %} {{ item.0|safe}}
+							
+						</em></li>
+
+					{% endfor %}
+				</ul>
+
+		{% endfor %}
+		</div>
+	
+	</div>
+
+</div>
+
+</head>
+</html>
+
+
+
