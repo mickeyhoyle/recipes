@@ -5,6 +5,8 @@ __pycache__
 myvenv
 db.sqlite3
 /static
+/media
 .DS_Store
 secretsettings.py
 .env
+pythonananywhere.txt
