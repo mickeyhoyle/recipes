@@ -4,7 +4,7 @@
 body {
   font-family: Cardo;
   font-size: 16px;
-
+  line-height: 1.6;
 }
 
 h1 {
@@ -22,20 +22,24 @@ h2 {
   text-transform: uppercase;
 }
 
-.wrapper {
+div {
+  padding: .5rem;
+
+}
+
+/*TOP*/
+
+.topwrapper {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: 1fr;
+  grid-auto-rows: auto;
   grid-gap: .25rem;
   max-width: 920px;
   margin: 0px auto;
    }
 
-.wrapper > div {
-  padding: .5rem;
-}
-
 .photo {
-  grid-column: span 12;
+  grid-column: span 100%; 
   padding: 0px;
   margin: 0px; }
 
@@ -43,7 +47,7 @@ h2 {
   width: 100%; }
 
 .title {
-  grid-column: span 12;
+  grid-column: span 100%; 
   align-items: center; 
   justify-items: center;
   text-align: center;
@@ -52,34 +56,44 @@ h2 {
 
   }
 
-  .title h1 {
+.title h1 {
     
     font-size: 3rem;
   }
 
 .intro {
-  grid-column: span 12; 
+  grid-column: span 100%; 
   display: grid;
-  grid-template-rows: 40px auto;
+  grid-template-rows: auto;
   align-items: center;
   justify-items: start | stretch;
   align-content: start;
   text-align: left;
-/*  font-family: Cardo;
-  font-size: 16px;*/
+
 }
 
 
 .line {
-  grid-column: span 12;
+  grid-column: span 100%;
 }
 
 .line hr {
   color: #eee;
 }
 
+
+/*INFO*/
+
+.infowrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-rows: auto;
+  grid-gap: .25rem;
+  max-width: 920px;
+  margin: 0px auto;
+   }
+
 .info {
-  grid-column: span 4; 
   display: grid;
   grid-template-rows: repeat(4, 1fr);
   align-items: center | stretch;
@@ -87,6 +101,7 @@ h2 {
   align-content: start | stretch;
 
   }
+
 
 .infotext {
 
@@ -98,14 +113,34 @@ h2 {
 .infotitle {
   }
 
+.infoline {
+  grid-column: span 3;
+  }
+
+.infoline hr {
+  color: #eee;
+}
+
+/*RECIPE*/
+
+.recipeingredientwrapper {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  grid-auto-rows: auto;
+  grid-gap: .25rem;
+  max-width: 920px;
+  margin: 0px auto;
+   }
+
 .recipe {
-  grid-column: span 7; 
+
   display: grid;
   grid-template-rows: 40px auto;
   align-items: center;
   justify-items: start | stretch;
   align-content: start;
   text-align: left;
+
 }
 
 .recipe h1 {
@@ -118,10 +153,13 @@ h2 {
   padding: 100;
   text-align: left;
 
+
 }
 
+/*INGREDIENTS*/
+
 .ingredients {
-  grid-column: span 5; 
+
   display: grid;
   grid-template-rows: 40px auto;
   align-items: center;
@@ -142,4 +180,34 @@ h2 {
   list-style: none;
   padding-left: 0;
 
+}
+
+@media (max-width: 500px) {
+  .topwrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: auto;
+  grid-gap: .25rem;
+  margin: 0px auto;
+  }
+  
+  .infowrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: auto;
+  grid-gap: .25rem;
+  margin: 0px auto;
+  }
+
+  .recipeingredientwrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: auto;
+  grid-gap: .25rem;
+  margin: 0px auto;
+  }
+
+  .infoline {
+  grid-column: span 1;
+  }
 }

@@ -7,9 +7,9 @@
 
 
 
+{# TOP #}
 
-
-<div class="wrapper">
+<div class="topwrapper">
 	{% if recipe.headerimage %}
 	<div class="photo">
 	<img src="{{ recipe.headerimage.url }}">
@@ -31,6 +31,10 @@
 
 	<div class="line"><hr></div>
 
+</div>
+
+<div class="infowrapper">
+
 	<div class="info"> 
 		<div class="infotitle"><h1>COURSE:</h1> </div>
 
@@ -47,6 +51,8 @@
 					{{ cuisine }}{% if not forloop.last %}, {% endif %}
 				{% endfor %}</div>
 	</div>
+
+
 
 	<div class="info">
 		<div class="infotitle"><h1>PREPTIME:</h1></div> 
@@ -74,7 +80,13 @@
 	</div>
 
 
-<div class="line"><hr></div>
+
+<div class="infoline"><hr></div>
+
+
+</div>
+
+<div class="recipeingredientwrapper">
 
 	<div class="recipe"> 
 		
