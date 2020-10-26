@@ -27,6 +27,47 @@ div {
 
 }
 
+ul li {
+  list-style: none;
+  padding-left: 0;
+
+}
+
+/*HOME*/
+
+.homelist {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: auto;
+  grid-gap: .25rem;
+  max-width: 920px;
+  margin: 0px auto;
+  align-content: center;
+  text-align: center;
+
+}
+
+.homelist a:link {
+  text-decoration: none;
+  font-size: 1.3rem;
+  font-variant: small-caps;
+}
+
+.homelist ul li {
+  list-style: none;
+  padding-left: 0;
+
+}
+
+.homelist h1{
+  font-family: Montserrat;
+  font-weight: 300;
+  font-size: 1.5rem;
+  margin: 0.25rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
 /*TOP*/
 
 .topwrapper {
