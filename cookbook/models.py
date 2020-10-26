@@ -3,6 +3,7 @@ from django.conf import settings
 from django.utils import timezone
 from django.contrib import admin
 from ckeditor.fields import RichTextField
+from djfractions.models import DecimalFractionField
 
 
 
@@ -32,7 +33,7 @@ class Recipe(models.Model):
 		for step in self.RecipeSteps.all():
 			ingredients = []
 			for ingredient in step.RecipeIngredients.all():
-				ingredients.append((ingredient.ingredientname, ingredient.amount, ingredient.unit, ingredient.step))
+				ingredients.append((ingredient.ingredientname, ingredient.amount, ingredient.unit, ingredient.step, ingredient.mult))
 			a.append((step.stepname, ingredients))
 		
 		return a
@@ -102,7 +103,7 @@ class RecipeStep(models.Model):
 class RecipeIngredient(models.Model):
 	recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
 	ingredientname = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
-	amount = models.IntegerField(blank=True, null=True)
+	amount = DecimalFractionField(max_digits=5, decimal_places=5, blank=True, null=True)
 	unit = models.ForeignKey(Unit, on_delete=models.CASCADE, blank=True, null=True)
 	step = models.ForeignKey(RecipeStep, related_name='RecipeIngredients', on_delete=models.CASCADE, blank=True, null=True, default="1")
 

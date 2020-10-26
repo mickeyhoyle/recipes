@@ -2,3 +2,4 @@ django
 pillow
 django-ckeditor
 python-dotenv
+django-fractions
