@@ -4,6 +4,7 @@ from django.utils import timezone
 from django.contrib import admin
 from ckeditor.fields import RichTextField
 from djfractions.models import DecimalFractionField
+import djfractions
 
 
 
@@ -103,29 +104,9 @@ class RecipeStep(models.Model):
 class RecipeIngredient(models.Model):
 	recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
 	ingredientname = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
-	amount = DecimalFractionField(max_digits=5, decimal_places=5, blank=True, null=True)
+	amount = djfractions.models.DecimalFractionField(max_digits=5, decimal_places=5, blank=True, null=True)
 	unit = models.ForeignKey(Unit, on_delete=models.CASCADE, blank=True, null=True)
 	step = models.ForeignKey(RecipeStep, related_name='RecipeIngredients', on_delete=models.CASCADE, blank=True, null=True, default="1")
 
 	def __str__(self):
 		return str(self.ingredientname)
-
-
-
-
-
-
-#Steps:
-#2 nieuwe attributes: step en stepno
-#sorteren op stepno 
-#stepno standaard 0
-#step blank = True
-
-
-
-
-
-
-
-
-#class RecipeSides(models.Model):

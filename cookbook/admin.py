@@ -1,10 +1,8 @@
 from django.contrib import admin
 from django.db import models
-
 from .models import *
 from django.forms import SelectMultiple
 from django.contrib.admin.widgets import AutocompleteSelect
-
 
 
 class RecipeIngredientInline(admin.TabularInline):
