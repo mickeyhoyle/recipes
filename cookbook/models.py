@@ -34,7 +34,7 @@ class Recipe(models.Model):
 		for step in self.RecipeSteps.all():
 			ingredients = []
 			for ingredient in step.RecipeIngredients.all():
-				ingredients.append((ingredient.ingredientname, ingredient.amount, ingredient.unit, ingredient.step, ingredient.mult))
+				ingredients.append((ingredient.ingredientname, ingredient.amount, ingredient.unit, ingredient.step))
 			a.append((step.stepname, ingredients))
 		
 		return a
