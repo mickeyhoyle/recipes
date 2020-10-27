@@ -3,7 +3,7 @@ from django.db import models
 from .models import *
 from django.forms import SelectMultiple
 from django.contrib.admin.widgets import AutocompleteSelect
-
+import djfractions
 
 class RecipeIngredientInline(admin.TabularInline):
 	autocomplete_fields = ['ingredientname', 'unit']
